@@ -5,6 +5,14 @@
   position: relative;
 }
 
+.mask {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 2;
+}
+
 .card {
   width: 60%;
   height: 80%;
@@ -77,4 +85,53 @@
   word-wrap: break-word;
   border-radius: 5px;
   background-color: #ebebeb;
+}
+
+.myCardStyle {
+  max-width: 70%;
+  overflow: hidden;
+  word-wrap: break-word;
+  border-radius: 5px;
+  background-color: green;
+  margin: 10px 8px 0 0;
+  padding: 5px 10px;
+  color: #FFF;
+}
+
+.otherCardStyle {
+  max-width: 70%;
+  overflow: hidden;
+  word-wrap: break-word;
+  border-radius: 5px;
+  background-color: #ebebeb;
+  margin: 20px 0 0 8px;
+  padding: 5px 10px;
+}
+
+.iconStyle {
+  font-size: 18px;
+  margin-top: 2px;
+  margin-right: 10px;
+  color: #969696;
+}
+
+.myImgBox {
+  width: 180px;
+  margin: 10px 8px 0 0;
+}
+
+.otherImgBox {
+  width: 180px;
+  margin: 20px 0 0 8px;
+}
+
+.msgImg {
+  border-radius: 5px;
+  width: 100%;
+}
+
+.emojiBox {
+  z-index: 999;
+  position: absolute;
+  bottom: 28px;
 }
