@@ -22,13 +22,13 @@ let userList = [{
   username: 'xiaoming',
   password: '123456',
   name: '小明',
-  headImg: imgUrl + 'xiaoming.jpg'
+  Avatar: imgUrl + 'xiaoming.jpg'
 }, {
   id: 2,
   username: 'xiaoli',
   password: '123456',
   name: '小丽',
-  headImg: imgUrl + 'xiaoli.jpg'
+  Avatar: imgUrl + 'xiaoli.jpg'
 }]
 
 // 当前在线的用户列表

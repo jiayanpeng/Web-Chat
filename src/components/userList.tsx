@@ -2,6 +2,7 @@
 import React from "react";
 import { Avatar, List } from 'antd';
 import MainStyle from '../views/Main.module.css';
+import { useSelector } from "react-redux";
 
 interface UserData {
   id: number,
@@ -16,10 +17,14 @@ interface Props {
 }
 
 export default function UserList(props: Props) {
+
   const { userList } = props
+
+  const activeRouter = useSelector((state: any) => state.activeRouter.value)
+
   return (
     <div className={MainStyle.userList}>
-      <div className={MainStyle.title}>在线列表</div>
+      <div className={MainStyle.title}>{activeRouter} list</div>
       <List
         itemLayout="horizontal"
         dataSource={userList}

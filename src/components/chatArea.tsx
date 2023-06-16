@@ -51,6 +51,9 @@ export default function TopHeader(props: Props) {
 
   const lastImg = useRef<InputRef>(null)
 
+  // 发送消息
+  const socket = io('http://localhost:3001/')
+
   const showModal = (imgSrc: string) => {
     setCurrentImg(imgSrc)
     setIsModalOpen(true);
@@ -60,21 +63,12 @@ export default function TopHeader(props: Props) {
     setIsModalOpen(false);
   };
 
-  // 发送消息
-  const socket = io('http://localhost:3001/')
-
-  // 接收消息
-  socket.on('recieveMsg', (data) => {
-    let arr = [...msgList, data]
-    setMsgList(arr)
-  })
-
   const scrollToBottom = () => {
     const zone = lastMsg.current!;
-    const height = zone.getBoundingClientRect().height;
-    console.log(`设置前：显示区的高度为：${height}，内容区高度为：${zone.scrollHeight}，滚动条已滚动距离为：${zone.scrollTop}`);
+    // const height = zone.getBoundingClientRect().height;
+    // console.log(`设置前：显示区的高度为：${height}，内容区高度为：${zone.scrollHeight}，滚动条已滚动距离为：${zone.scrollTop}`);
     zone.scrollTop = zone.scrollHeight;
-    console.log(`设置后：显示区的高度为：${height}，内容区高度为：${zone.scrollHeight}，滚动条已滚动距离为：${zone.scrollTop}`);
+    // console.log(`设置后：显示区的高度为：${height}，内容区高度为：${zone.scrollHeight}，滚动条已滚动距离为：${zone.scrollTop}`);
   }
 
   const sendMsg = () => {
@@ -90,7 +84,7 @@ export default function TopHeader(props: Props) {
         type: 1,
         userId: props.id
       }
-      console.log(data)
+      // console.log(data)
       // 发送消息
       socket.emit('sendMsg', data)
       setInputValue('')
@@ -129,7 +123,22 @@ export default function TopHeader(props: Props) {
   }
 
   useEffect(() => {
+
+    const socket = io('http://localhost:3001/')
+
+    // 接收消息
+    socket.on('recieveMsg', (data) => {
+      // console.log(data)
+      let arr = [...msgList, data]
+      console.log(arr)
+      setMsgList(arr)
+    })
     scrollToBottom()
+
+    return () => {
+      socket.off('recieveMsg')
+    }
+
   }, [msgList])
 
   return (
@@ -139,7 +148,7 @@ export default function TopHeader(props: Props) {
       </Modal>
       <Input type="file" style={{ display: 'none' }} ref={lastImg} value={imgValue} onChange={(e) => sendImg(e)} />
       {contextHolder}
-      <div className={MainStyle.title}>聊天群组</div>
+      <div className={MainStyle.title}>Chat Box</div>
       <div className={MainStyle.chatBox} ref={lastMsg}>
         <ul className={MainStyle.list} >
           {msgList.map((item, index) => {
@@ -186,7 +195,7 @@ export default function TopHeader(props: Props) {
         <div style={{ padding: '4px 11px 0 11px', position: 'relative' }}>
           {emojiShow && (
             <div style={{ position: 'absolute', bottom: '28px' }}>
-              <Picker searchPosition='none' locale='zh' data={data} onEmojiSelect={(e: any) => {
+              <Picker searchPosition='none' data={data} onEmojiSelect={(e: any) => {
                 setInputValue(inputValue + e.native)
               }} />
             </div>
@@ -201,7 +210,7 @@ export default function TopHeader(props: Props) {
         }} />
         <Button type="primary" style={{ position: 'absolute', right: '20px', bottom: '10px' }} onClick={() => {
           sendMsg()
-        }}>发送</Button>
+        }}>Send</Button>
       </div>
     </div >
   )

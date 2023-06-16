@@ -38,7 +38,7 @@
 }
 
 .chatBox {
-  height: 360px;
+  height: 50vh;
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
   overflow-y: scroll;
   padding: 0 20px;
@@ -47,7 +47,7 @@
 .userList {
   height: 560.275px;
   overflow-y: scroll;
-  padding: 0 20px;
+  /* padding: 0 20px; */
 }
 
 /*滚动条整体粗细样式*/
@@ -134,4 +134,37 @@
   z-index: 999;
   position: absolute;
   bottom: 28px;
+}
+
+.funcBox {
+  height: 100%;
+  position: relative;
+}
+
+.funcBtnBox {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+}
+
+.funcBtnBox div {
+  margin-bottom: 10px;
+}
+
+.funcBtnBox div img {
+  width: 50%;
+  cursor: pointer;
+}
+
+.funcSet {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+}
+
+.funcSet img {
+  width: 52%;
+  cursor: pointer;
 }
