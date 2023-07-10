@@ -1,0 +1,70 @@
+.mainBox {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(242, 242, 242)
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(5, 5, 5, 0.06);
+  z-index: 1;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box {
+  width: 50%;
+  height: 40%;
+}
+
+.avatarFlex {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.avatar {
+  cursor: pointer;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  /* background-color: #551a8b; */
+  align-items: center;
+  border-radius: 50%;
+}
+
+.avatarImg {
+  width: 80%;
+}
+
+.textButton {
+  position: absolute;
+  top: 70%;
+  right: 10%;
+}
+
+.textButton span {
+  cursor: pointer;
+  color: #551a8b;
+}
+
+.button {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translate(-50%, 0);
+}

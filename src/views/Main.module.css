@@ -13,6 +13,12 @@
   z-index: 2;
 }
 
+.logout {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
 .card {
   width: 60%;
   height: 80%;
@@ -20,6 +26,20 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.prompt {
+  border-radius: 50%;
+  min-width: 14px;
+  height: 14px;
+  background-color: red;
+  text-align: center;
+  line-height: 14px;
+  color: #FFF;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  cursor: pointer;
 }
 
 .title {
@@ -39,15 +59,50 @@
 
 .chatBox {
   height: 50vh;
-  border-bottom: 1px solid rgba(5, 5, 5, 0.06);
+  /* border-bottom: 1px solid rgba(5, 5, 5, 0.06); */
   overflow-y: scroll;
   padding: 0 20px;
 }
 
+.chatBoxInput {
+  position: relative;
+  height: 26%;
+  border-top: 1px solid rgba(5, 5, 5, 0.06);
+}
+
 .userList {
   height: 560.275px;
-  overflow-y: scroll;
+  overflow-y: auto;
   /* padding: 0 20px; */
+}
+
+
+.userListTabs {
+  position: fixed;
+  width: 22%;
+  height: 40px;
+  bottom: 0;
+  font-size: 16px;
+  border-top: 1px solid rgba(5, 5, 5, 0.06);
+  display: flex;
+  justify-content: space-around;
+}
+
+.userListTabs div {
+  width: 50%;
+  text-align: center;
+  height: 100%;
+  line-height: 36px;
+  cursor: pointer;
+}
+
+.userListTabs div:nth-child(1) {
+  border-right: 1px solid rgba(5, 5, 5, 0.06);
+  ;
+}
+
+.activeTabs {
+  background-color: rgba(22, 119, 255, 0.1);
 }
 
 /*滚动条整体粗细样式*/
@@ -71,6 +126,22 @@
 
 .chatBox:hover::-webkit-scrollbar-thumb {
   background-color: #ebebeb;
+}
+
+.chatBoxTop {
+  position: relative;
+}
+
+.onlineType {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 9px;
+  left: 40px;
+}
+
+.onlineType img {
+  width: 100%;
 }
 
 /*滚动条轨道*/
@@ -167,4 +238,22 @@
 .funcSet img {
   width: 52%;
   cursor: pointer;
+}
+
+.welcomeSvg {
+  width: 55%;
+  position: absolute;
+  top: 15%;
+  right: 8%;
+}
+
+.messagetips {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
 }

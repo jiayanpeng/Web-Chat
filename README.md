@@ -10,7 +10,7 @@ After logging in, users will enter a public chat room for realtime chat.
 
 Provide two users for simulation, xiaoming and xiaoli.\
 xiaoming: { username : xiaoming, password : 123456 }\
-xiaoli: { username : xiaoli, password : 123456 }
+xiaoli: { username : xiaoli, password : 251691 }
 
 ## Start
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, Input, Avatar, FormInstance } from 'antd';
 import { EditOutlined } from '@ant-design/icons'
+import setAvatar from '../utils/SetAvatar';
 
 const onFinish = (values: any) => {
   console.log('Success:', values);
@@ -23,7 +24,7 @@ interface Props {
   initialValues: UserData
 }
 
-export default function setUserForm(props: Props) {
+export default function SetUserForm(props: Props) {
   const { form, initialValues } = props
 
   return (
@@ -47,7 +48,7 @@ export default function setUserForm(props: Props) {
         <div style={{
           position: 'relative'
         }}>
-          <Avatar size={128} src={initialValues.headImg} alt="" />
+          <Avatar size={128} src={<div dangerouslySetInnerHTML={{ __html: setAvatar(initialValues.headImg) }} />} />
           <Button icon={<EditOutlined />} type="primary" style={{
             position: "absolute",
             bottom: '0',

@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { Button, Form, Input } from 'antd';
-import { useNavigate } from "react-router-dom";
+import { Button, Form, Input, message } from 'antd';
+import { Link, useNavigate } from "react-router-dom";
 import LoginStyle from "./Login.module.css"
-import { message } from 'antd'
 import request from "../../api/request";
 
 
@@ -22,10 +21,12 @@ export default function Login() {
     if (!token) {
       messageApi.open({
         type: 'error',
-        content: '没有登陆'
+        content: 'No login'
       })
+    } else {
+      navigate('/')
     }
-  }, [messageApi])
+  }, [messageApi, navigate])
 
   const onFinish = (values: User) => {
     let data = JSON.stringify(values)
@@ -63,35 +64,35 @@ export default function Login() {
     <div className={LoginStyle.box}>
       {contextHolder}
       <div className={LoginStyle.fromBox}>
-        <h1>登陆</h1>
+        <h1>Login</h1>
         <Form
           name="basic"
           style={{ maxWidth: 400, margin: 'auto' }}
-          initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <Form.Item
             name="username"
-            rules={[{ required: true, message: '账号不能为空!' }]}
+            rules={[{ required: true, message: 'Username cannot be empty!' }]}
           >
-            <Input placeholder="请输入账号" />
+            <Input placeholder="Username" />
           </Form.Item>
 
           <Form.Item
             name="password"
-            rules={[{ required: true, message: '密码不能为空!' }]}
+            rules={[{ required: true, message: 'Password cannot be empty!' }]}
           >
-            <Input.Password placeholder="请输入密码" />
+            <Input.Password placeholder="Password" autoComplete="off" />
           </Form.Item>
 
           <Form.Item>
             <Button type="primary" htmlType="submit">
-              登陆
+              Login
             </Button>
           </Form.Item>
         </Form>
+        <span>Don't have an account ? <Link to="/register">Register</Link></span>
       </div>
     </div>
   )

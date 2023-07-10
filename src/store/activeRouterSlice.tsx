@@ -8,7 +8,7 @@ const initialState: RouterState = {
   value: 'Message'
 }
 
-export const counterSlice = createSlice({
+export const routerSlice = createSlice({
   name: 'activeRouter',
   initialState,
   reducers: {
@@ -20,6 +20,6 @@ export const counterSlice = createSlice({
   },
 })
 
-export const { setActiveRouter } = counterSlice.actions;
+export const { setActiveRouter } = routerSlice.actions;
 
-export default counterSlice.reducer
+export default routerSlice.reducer
